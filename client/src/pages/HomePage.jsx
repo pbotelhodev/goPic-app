@@ -1,5 +1,4 @@
 //Imports Tools
-import { useEffect } from "react";
 import { ROUTES } from "../routes";
 import { Link } from "react-router-dom";
 import {
@@ -27,9 +26,6 @@ import "../styles/Header.css";
 import "../styles/MainHome.css";
 
 function HomePage() {
-  useEffect(() => {
-    document.title = "GoPic - A rede social da sua festa";
-  }, []);
   return (
     <div>
       {/* ========== Header ========= */}

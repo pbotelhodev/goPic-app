@@ -4,7 +4,7 @@ import { ROUTES } from "../routes";
 const CreateEventPage = () => {
 
   useEffect(() => {
-    document.title = "Criar Festa | GoPic";
+    document.title = "Criar Festa - GoPic";
   }, []);
   return(
     <div>
