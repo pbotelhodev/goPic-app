@@ -23,7 +23,7 @@
   justify-content: center;
   align-items: start;
 }
-.icon-card {
+.icon-card-how {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,10 +32,10 @@
   background-image: var(--gradient);
   margin-bottom: 30px;
 }
-.title-card {
+.title-card-how {
   display: flex;
   justify-content: start;
-  font-size: 1em;
+  font-size: 0.9em;
   width: 100%;
 }
 .subtitle-card {
@@ -53,12 +53,12 @@
     height: 350px;
     width: 400px;
   }
-  .icon-card {
+  .icon-card-how {
     width: 90px;
     height: 90px;
   }
-  .title-card {
-    font-size: 19px;
+  .title-card-how {
+    font-size: 17px;
     width: 100%;
   }
 }

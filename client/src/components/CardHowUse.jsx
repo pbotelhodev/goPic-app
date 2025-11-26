@@ -3,8 +3,8 @@ import '../styles/CardHowUse.css'
 const CardHowUse = ({ icon: Icon, title, subtitle }) => {
   return (
     <div className="card">
-      <div className="icon-card">{Icon}</div>
-      <div className="title-card">
+      <div className="icon-card-how">{Icon}</div>
+      <div className="title-card-how">
         <h1>{title}</h1>
       </div>
       <div className="subtitle-card">

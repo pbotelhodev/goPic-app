@@ -12,10 +12,12 @@ import {
 } from "lucide-react";
 
 //Imports components
-import CardHowUse from "../components/CardHowUse";
+//import Header from "../components/Header";
+import CardHowUse from "../components/CardHowUse.jsx";
+import Footer from "../components/Footer.jsx";
+import Header from "../components/Header.jsx";
 
 //Imports Images
-import LogoImg from "../assets/logo-GoPic.png";
 import imgHero from "../assets/heroimg.png";
 import PostImage from "../assets/photo-post.jpg";
 import HalfImage from "../assets/half-image.png";
@@ -28,59 +30,43 @@ import "../styles/MainHome.css";
 function HomePage() {
   return (
     <div>
-      {/* ========== Header ========= */}
-      <div className="nav-bar">
-        <nav className=" container-header">
-          <div className="logo-area">
-            <img
-              className="img-logo"
-              src={LogoImg}
-              alt="logoGoPic"
-              style={{ width: "90px", height: "auto" }}
-            />
-          </div>
-          <div className="button-area">
-            <Link to={ROUTES.CREATE_PARTY}>
-              <button className="btn-header">Criar Festa</button>
-            </Link>
-          </div>
-        </nav>
-      </div>
-
-      {/* ========== Hero ========= */}
-      <section className="hero-section">
-        <div className="container-main-home">
-          <div className="hero-left">
-            <div className="hero-title-area">
-              <h1 className="gradient">
-                Sua Festa,
-                <br /> Sua Rede Social
-              </h1>
-            </div>
-            <div className="hero-subtitle-area">
-              <p>
-                Crie uma rede social exclusiva para sua festa! Compartilhe os
-                momentos especiais com seus convidados em um espaço privado e
-                personalizado.
-              </p>
-            </div>
-            <div className="hero-buttom">
-              <Link to={ROUTES.CREATE_PARTY}>
-                <button>
-                  Criar Minha Festa Agora <ArrowRight />
-                </button>
-              </Link>
-            </div>
-          </div>
-          <div className="hero-right">
-            <div className="hero-img-area">
-              <img src={imgHero} />
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* ========== Showcase ========= */}
+      <Header />
+      {/* ========== Main ========= */}
       <main>
+        {/* ========== Hero ========= */}
+        <section className="hero-section">
+          <div className="container-main-home">
+            <div className="hero-left">
+              <div className="hero-title-area">
+                <h1 className="gradient">
+                  Sua Festa,
+                  <br /> Sua Rede Social
+                </h1>
+              </div>
+              <div className="hero-subtitle-area">
+                <p>
+                  Crie uma rede social exclusiva para sua festa! Compartilhe os
+                  momentos especiais com seus convidados em um espaço privado e
+                  personalizado.
+                </p>
+              </div>
+              <div className="hero-buttom">
+                <Link to={ROUTES.CREATE_PARTY}>
+                  <button>
+                    Criar Minha Festa Agora <ArrowRight />
+                  </button>
+                </Link>
+              </div>
+            </div>
+            <div className="hero-right">
+              <div className="hero-img-area">
+                <img src={imgHero} />
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* ========== Showcase ========= */}
+
         <section className="showcase">
           <div className="container-showcase">
             <div className="showcase-title">
@@ -271,7 +257,7 @@ function HomePage() {
             />
             <CardHowUse
               icon={<QrCode className="icon-badge" />}
-              title={"2. Gere o QR Code"}
+              title={"2. Gere o Qr Code"}
               subtitle={
                 "Após o pagamento, receba um QR code exclusivo com o link da rede social da sua festa."
               }
@@ -280,7 +266,7 @@ function HomePage() {
               icon={<Share2 className="icon-badge" />}
               title={"3. Compartilhe"}
               subtitle={
-                "Distribua o QR code para seus convidados e deixe todos compartilharem os melhores momentos!"
+                "Preencha os dados da sua festa: nome, data, local e personalize como quiser."
               }
             />
           </div>
@@ -307,13 +293,7 @@ function HomePage() {
           </div>
         </section>
       </main>
-
-      {/* ========== footer ========= */}
-      <footer>
-        <p>© 2026 GoPic. Todos os direitos reservados</p>
-      </footer>
-
-      {/* ========== Main ========= */}
+      <Footer />
     </div>
   );
 }
