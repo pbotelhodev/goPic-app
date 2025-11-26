@@ -285,6 +285,9 @@ function HomePage() {
             />
           </div>
         </section>
+
+        {/* ========== StepSection ========= */}
+
         <section className="cto-section">
           <div className="cto-card">
             <h1 className="gradient">Pronto para criar memórias incríveis?</h1>
@@ -300,6 +303,7 @@ function HomePage() {
           </div>
         </section>
       </main>
+
       {/* ========== footer ========= */}
       <footer>
         <p>© 2026 GoPic. Todos os direitos reservados</p>
