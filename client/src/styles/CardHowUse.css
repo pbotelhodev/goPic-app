@@ -29,7 +29,7 @@
   align-items: center;
   width: 60px;
   height: 60px;
-  border-radius: 100px;
+  border-radius: 100%;
   background-image: var(--gradient);
   margin-bottom: 30px;
 }
@@ -40,10 +40,10 @@
   width: 100%;
 }
 .subtitle-card {
-    width: 100%;
-    margin-bottom: 10px;
-    text-align: start;
-  }
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: start;
+}
 /* ==========================================
 
         BLOCO 2: SETUP & TABLET (768px +)
