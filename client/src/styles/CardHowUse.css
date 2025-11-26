@@ -5,43 +5,61 @@
   --color-purple: #8b5cf6;
   --color-cyan: #00d2ff;
 }
+/* ==========================================
 
-.card{
-    height: 350px;
-    width: 400px;
-    background-color: #FBFBFC;
-    border: 1px solid #E4E4E7;
-    border-radius: 30px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-}
+        BLOCO 1: MOBILE (0px até 767px)
 
-.icon-card{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90px;
-    height: 90px;
-    size: 50px;
-    border-radius: 100px;
-    background-image: var(--gradient);
-    margin-bottom: 30px;
+   ========================================== */
+
+.card {
+  height: 280px;
+  width: 330px;
+  background-color: #fbfbfc;
+  border: 1px solid #e4e4e7;
+  border-radius: 30px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
 }
-.title-card{
-    text-align: start;
-    font-size: 19px;
-    width: 100%;
-    height: 20%;
+.icon-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  background-image: var(--gradient);
+  margin-bottom: 30px;
 }
-.subtitle-card{
+.title-card {
+  display: flex;
+  justify-content: start;
+  font-size: 1em;
+  width: 100%;
+}
+.subtitle-card {
     width: 100%;
-    height: 20%;
     margin-bottom: 10px;
     text-align: start;
-    color: black;
+  }
+/* ==========================================
+
+        BLOCO 2: SETUP & TABLET (768px +)
+
+   ========================================== */
+@media (min-width: 1024px) {
+  .card {
+    height: 350px;
+    width: 400px;
+  }
+  .icon-card {
+    width: 90px;
+    height: 90px;
+  }
+  .title-card {
+    font-size: 19px;
+    width: 100%;
+  }
 }
-
-
