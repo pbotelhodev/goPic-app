@@ -8,7 +8,9 @@ import {
   Pencil,
   CalendarDays,
   MapPin,
-  Mail
+  Mail,
+  Check,
+  NotepadText,
 } from "lucide-react";
 
 //import componets
@@ -29,7 +31,9 @@ const CreateEventPage = () => {
   return (
     <div className="body-createEvent">
       {/* ========== Header ========= */}
-      <Header showButton={false} />
+      <div className="logo-gopic">
+        <img src={LogoImg} alt="logo gopic" />
+      </div>
       {/* ========== Main ========== */}
       <div className="main">
         <div className="container">
@@ -42,6 +46,7 @@ const CreateEventPage = () => {
               evento
             </div>
           </div>
+          {/* ----- Primeiro Card ----- */}
           <div className="card-cadastro">
             <div className="card-register">
               <div className="title-card">
@@ -73,7 +78,15 @@ const CreateEventPage = () => {
                 icon={<MapPin size={18} />}
                 type={"text"}
               />
+              <Inputs
+                title={"Descrição"}
+                placeholder={"Conte mais sobre o seu evento..."}
+                icon={<NotepadText size={18} />}
+                type={"email"}
+              />
             </div>
+
+            {/* ----- Segundo Card ----- */}
             <div className="card-register">
               <div className="title-card">
                 <div className="title-icon">
@@ -96,10 +109,33 @@ const CreateEventPage = () => {
                 title={"Email*"}
                 placeholder={"seu@email.com"}
                 icon={<Mail size={18} />}
-                type={"text"}
+                type={"email"}
               />
-            </div>
-            <div className="card-register">
+
+              <div className="card-register-plan">
+                <div className="area-top">
+                  <div className="title-plan">
+                    <h1>Plano Infinity</h1>
+                  </div>
+                  <div className="price-plan">
+                    <h1 className="gradient">R$ 99,90</h1>
+                  </div>
+                </div>
+                <div className="area-bottom">
+                  <p className="row-rewards">
+                    <Check size={12} /> Rede Social Privada
+                  </p>
+                  <p className="row-rewards">
+                    <Check size={12} /> Upload ilimitado de fotos
+                  </p>
+                  <p className="row-rewards">
+                    <Check size={12} /> Qr Code Personalizado
+                  </p>
+                  <p className="row-rewards">
+                    <Check size={12} /> Válido por 30 dias
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

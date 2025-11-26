@@ -31,7 +31,16 @@
         BLOCO 1: MOBILE (0px até 767px)
 
    ========================================== */
-
+.logo-gopic {
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  text-align: center;
+  & img {
+    width: 80px;
+    height: auto;
+  }
+}
 .body-createEvent {
   display: flex;
   flex-direction: column;
@@ -47,10 +56,10 @@
   margin: 0px auto;
   display: flex;
   flex-direction: column;
-  padding: 110px 15px 30px 15px;
+  padding: 0px 15px;
   gap: 30px;
 }
-.title-group{
+.title-group {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -80,6 +89,8 @@
 }
 .title-card {
   font-size: 1.5em;
+  display: flex;
+  align-items: center;
 }
 .subtitle-card {
   font-size: 0.8em;
@@ -93,6 +104,29 @@
   color: black;
 }
 
+.card-register-plan {
+  background-color: #faeee9;
+  border-radius: 20px;
+  padding: 10px;
+}
+.area-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title-plan {
+  font-size: 0.5em;
+}
+.price-plan {
+  font-size: 0.5em;
+}
+.row-rewards {
+  font-size: 0.7em;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 5px;
+}
 /* ==========================================
 
         BLOCO 2: SETUP & TABLET (768px +)
@@ -102,7 +136,7 @@
   .container {
     max-width: 1280px;
     width: 100%;
-    margin: 80px 15px;
+    margin: 0px autopx;
     gap: 30px;
   }
   .main-title {
