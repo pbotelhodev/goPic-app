@@ -36,6 +36,7 @@
   padding: 10px;
   background-color: white;
   text-align: center;
+  border-bottom: 1px solid #f6eef6;
   & img {
     width: 80px;
     height: auto;
@@ -50,6 +51,7 @@
   flex: 1;
   width: 100%;
   background-color: white;
+  padding: 10px 0px;
 }
 .container {
   width: 85%;
@@ -83,9 +85,10 @@
   gap: 30px;
 }
 .card-register {
-  border-radius: 20px;
-  background-color: #f6eef6;
+  border-radius: 10px;
+  background-image: linear-gradient(135deg, #8b5cf615, #00d2ff15);
   padding: 25px;
+  border: 1px solid #e4e4e7;
 }
 .title-card {
   font-size: 1.5em;
@@ -106,7 +109,8 @@
 
 .card-register-plan {
   background-color: #faeee9;
-  border-radius: 20px;
+  border: 1px solid #e0d5d0;
+  border-radius: 15px;
   padding: 10px;
 }
 .area-top {
@@ -127,12 +131,36 @@
   align-items: center;
   gap: 5px;
 }
+.area-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.button-create {
+  width: 100%;
+
+  & button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+}
+.security {
+  font-size: 0.8em;
+}
 /* ==========================================
 
         BLOCO 2: SETUP & TABLET (768px +)
 
    ========================================== */
 @media (min-width: 1025px) {
+  .main {
+    padding: 30px 0px;
+  }
   .container {
     max-width: 1280px;
     width: 100%;
@@ -152,9 +180,26 @@
     width: 100%;
   }
   .card-register {
-    width: 30%;
+    width: 32%;
   }
   .title-card {
     display: flex;
   }
+  .row-rewards {
+    font-size: 0.8em;
+  }
+  .area-bottom {
+    padding: 10px 0px;
+  }
+  .button-create {
+    display: flex;
+    justify-content: center;
+  & button {
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+}
 }

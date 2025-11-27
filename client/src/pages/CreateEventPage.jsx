@@ -138,6 +138,17 @@ const CreateEventPage = () => {
               </div>
             </div>
           </div>
+          <div className="area-button">
+            <div className="button-create">
+              <button>
+                <CreditCard />
+                Pagar e Criar Festa
+              </button>
+            </div>
+            <div className="security">
+              <p>Pagamento seguro via cartão de crédito ou pix</p>
+            </div>
+          </div>
         </div>
       </div>
       {/* ========== Footer ========== */}
