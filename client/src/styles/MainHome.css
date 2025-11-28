@@ -408,7 +408,7 @@ footer {
 
    ========================================== */
 
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
   /* ========== Hero-Section ========== */
   .hero-section {
     padding: 160px 15px 100px 15px;
