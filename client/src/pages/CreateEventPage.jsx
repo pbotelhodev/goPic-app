@@ -174,9 +174,9 @@ const CreateEventPage = () => {
                   />
                   <Inputs
                     value={numberHouseUser}
-                    onChange={setNumberHouseUser}
+                    onChange={(e) => setNumberHouseUser(e.target.value)}
                     title={"Número"}
-                    placeholder={""}
+                    placeholder={"0000"}
                     icon={<House size={18} />}
                     type={"tel"}
                     req={true}
