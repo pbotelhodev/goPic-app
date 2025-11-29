@@ -15,7 +15,15 @@ import {
   Smartphone,
   Ticket,
 } from "lucide-react";
+
+//validators
 import { maskCPF, maskPhone, maskDate, maskCEP } from "../utils/mask";
+import {
+  validarCPF,
+  validarTelefone,
+  validarData,
+  validarCEP,
+} from "../utils/validators";
 
 //import componets
 import Footer from "../components/Footer";
@@ -27,8 +35,28 @@ import "../styles/CreateEventPage.css";
 //Imports Images
 import LogoImg from "../assets/logo-memora.png";
 
+/* Banco de dados provisório */
+const CUPONS_VALIDOS = {
+  PEDRO10: 10,
+  MEMORA20: 20,
+  FOTO_JOAO: 10, // Exemplo de parceiro
+  LANÇAMENTO: 50, // Cupom agressivo de teste
+};
+
 const CreateEventPage = () => {
   /* ========== States ========== */
+  //Cupom
+  //const [precoOriginal] = useState(99.9);
+  //const [descontoAplicado, setDescontoAplicado] = useState(0);
+  //const [msgCupom, setMsgCupom] = useState("");
+
+  //validators
+  const [cpfError, setCpfError] = useState(false);
+  const [telError, setTelError] = useState(false);
+  const [dataError, setDataError] = useState(false);
+  const [cepError, setCepError] = useState(false);
+
+  //Users Info
   const [nameUser, setNameUser] = useState("");
   const [emailUser, setEmailUser] = useState("");
   const [cpfUser, setCpfUser] = useState("");
@@ -43,23 +71,56 @@ const CreateEventPage = () => {
   /* =========== Masks ============ */
   const handleCpfChange = (e) => {
     setCpfUser(maskCPF(e.target.value));
+    setCpfError(false);
   };
 
   const handlePhoneChange = (e) => {
     setWhatsapp(maskPhone(e.target.value));
+    setTelError(false);
   };
 
   const handleDateChange = (e) => {
     setDateEvent(maskDate(e.target.value));
+    setDataError(false);
   };
 
   const handleCepChange = (e) => {
     setCepUser(maskCEP(e.target.value));
+    setCepError(false);
+  };
+
+  //Validators Function
+  const handleCpfBlur = () => {
+    if (cpfUser.length > 0 && !validarCPF(cpfUser)) {
+      setCpfError(true);
+    }
+  };
+  const handleTelBlur = () => {
+    if (whatsapp.length > 0 && !validarTelefone(whatsapp)) {
+      setTelError(true);
+    }
+  };
+  const handleDateBlur = () => {
+    if (dateEvent.length > 0 && !validarData(dateEvent)) {
+      setDataError(true);
+    }
+  };
+
+  const handleCepBlur = () => {
+    if (cepUser.length > 0 && !validarCEP(cepUser)) {
+      setCepError(true);
+    }
   };
 
   /* =========== Functions =========== */
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (cpfError) {
+      setCpfUser("");
+      return;
+    }
+
     if (
       !nameUser ||
       !emailUser ||
@@ -68,7 +129,7 @@ const CreateEventPage = () => {
       !cepUser ||
       !numberHouseUser ||
       !titleEvent ||
-      !dateEvent 
+      !dateEvent
     ) {
       alert("Ops! Preencha todos os campos obrigatórios para continuar.");
       return;
@@ -145,31 +206,37 @@ const CreateEventPage = () => {
                   <Inputs
                     value={cpfUser}
                     onChange={handleCpfChange}
+                    onBlur={handleCpfBlur}
                     title={"CPF"}
                     placeholder={"000.000.000-00"}
                     icon={<IdCard size={18} />}
                     type={"tel"}
                     req={true}
+                    error={cpfError}
                   />
                   <Inputs
                     value={whatsapp}
                     onChange={handlePhoneChange}
+                    onBlur={handleTelBlur}
                     title={"Whatsapp"}
                     placeholder={"(99) 9 9999-9999"}
                     icon={<Smartphone size={18} />}
                     type={"tel"}
                     req={true}
+                    error={telError}
                   />
                 </div>
                 <div className="input-duo">
                   <Inputs
                     value={cepUser}
                     onChange={handleCepChange}
+                    onBlur={handleCepBlur}
                     title={"CEP"}
                     placeholder={"00000-000"}
                     icon={<Mailbox size={18} />}
                     type={"tel"}
                     req={true}
+                    error={cepError}
                   />
                   <Inputs
                     value={numberHouseUser}
@@ -219,11 +286,13 @@ const CreateEventPage = () => {
                   <Inputs
                     value={dateEvent}
                     onChange={handleDateChange}
+                    onBlur={handleDateBlur}
                     title={"Data do evento"}
                     placeholder={"DD/MM/AAAA"}
                     icon={<CalendarDays size={18} />}
                     type={"tel"}
                     req={true}
+                    error={dataError}
                   />
 
                   <Inputs

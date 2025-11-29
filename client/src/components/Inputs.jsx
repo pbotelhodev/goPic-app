@@ -3,11 +3,13 @@ import "../styles/Inputs.css";
 const Inputs = ({
   title,
   icon: Icon,
-  type,
+  type = "text",
   placeholder,
   value,
   onChange,
+  onBlur,
   req,
+  error,
 }) => {
   return (
     <div className="box-input">
@@ -15,7 +17,7 @@ const Inputs = ({
         <div className="icon-input">{Icon}</div>
         <div className="text-title-input">
           <p>
-            {title } 
+            {title}
             {req && <span style={{ color: "red" }}> *</span>}
           </p>
         </div>
@@ -26,7 +28,15 @@ const Inputs = ({
         type={type}
         placeholder={placeholder}
         required={req}
+        onBlur={onBlur}
+        style={{ borderColor: error === true ? "#EF4444" : "#334155" }}
       />
+      {error === true ? (
+        <p className="subtitle-cpf">
+          {title === "CPF" ? "CPF" : title === 'Whatsapp' ? 'Telefone' : title === "Data do evento" ? "Data" : "CEP"} Inválido.
+        </p>
+      ) : null}
+
       {title === "CPF" ? (
         <p className="subtitle-cpf">Necessário para emissão de nota fiscal</p>
       ) : null}
