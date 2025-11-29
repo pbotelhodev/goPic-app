@@ -67,9 +67,8 @@ const CreateEventPage = () => {
       !whatsapp ||
       !cepUser ||
       !numberHouseUser ||
-      !!titleEvent ||
-      !dateEvent ||
-      !cupomUser
+      !titleEvent ||
+      !dateEvent 
     ) {
       alert("Ops! Preencha todos os campos obrigatórios para continuar.");
       return;
