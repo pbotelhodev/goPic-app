@@ -10,6 +10,7 @@ const Inputs = ({
   onBlur,
   req,
   error,
+  cupomAtivo,
 }) => {
   return (
     <div className="box-input">
@@ -32,18 +33,31 @@ const Inputs = ({
         style={{ borderColor: error === true ? "#EF4444" : "#334155" }}
       />
       {error === true ? (
-        <p className="subtitle-cpf">
-          {title === "CPF" ? "CPF" : title === 'Whatsapp' ? 'Telefone' : title === "Data do evento" ? "Data" : "CEP"} Inválido.
+        <p className="subtitle-input">
+          {title === "CPF"
+            ? "CPF "
+            : title === "Whatsapp"
+            ? "Telefone "
+            : title === "Data do evento"
+            ? "Data "
+            : title === "CEP"
+            ? "CEP "
+            : null}
+          Inválido.
         </p>
       ) : null}
 
       {title === "CPF" ? (
-        <p className="subtitle-cpf">Necessário para emissão de nota fiscal</p>
+        <p className="subtitle-input">Necessário para emissão de NF-E</p>
       ) : null}
       {title === "Data do evento" ? (
-        <p className="subtitle-cpf">
-          Fotos disponíveis para download 2 dias após a data.
-        </p>
+        <p className="subtitle-input">Fotos disponíveis em 48h.</p>
+      ) : null}
+      {title === "Cupom" && cupomAtivo === 1 ? (
+        <p className="subtitle-input color-green">Desconto aplicado</p>
+      ) : null}
+      {title === "Cupom" && cupomAtivo === 2 ? (
+        <p className="subtitle-input color-red">Cupom Inválido</p>
       ) : null}
     </div>
   );

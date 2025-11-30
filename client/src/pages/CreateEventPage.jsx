@@ -37,18 +37,20 @@ import LogoImg from "../assets/logo-memora.png";
 
 /* Banco de dados provisório */
 const CUPONS_VALIDOS = {
-  PEDRO10: 10,
-  MEMORA20: 20,
-  FOTO_JOAO: 10, // Exemplo de parceiro
-  LANÇAMENTO: 50, // Cupom agressivo de teste
+  TESTE10: 10,
+  TESTE15: 15,
+  TESTE20: 20,
+  TESTE50: 50,
+  TESTE100: 100,
 };
 
 const CreateEventPage = () => {
   /* ========== States ========== */
   //Cupom
-  //const [precoOriginal] = useState(99.9);
-  //const [descontoAplicado, setDescontoAplicado] = useState(0);
-  //const [msgCupom, setMsgCupom] = useState("");
+  const [precoOriginal] = useState(99);
+  const [precoCupom, setPrecoCupom] = useState(precoOriginal);
+  const [cupomAtivo, setCupomAtivo] = useState(0);
+  const [descontoCupom, setDescontoCupom] = useState(0);
 
   //validators
   const [cpfError, setCpfError] = useState(false);
@@ -111,7 +113,15 @@ const CreateEventPage = () => {
       setCepError(true);
     }
   };
-
+  const handleCupomBlur = (e) => {
+    let cupom = e.target.value.trim().toUpperCase();
+    if (cupom.length > 0) {
+      validarCupom(cupom);
+    } else {
+      setPrecoCupom(99.9);
+      setCupomAtivo(0);
+    }
+  };
   /* =========== Functions =========== */
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -146,6 +156,23 @@ const CreateEventPage = () => {
       dateEvent,
       localEvent,
     });
+  };
+
+  const validarCupom = (cupom) => {
+    const descCupom = CUPONS_VALIDOS[cupom];
+    if (descCupom !== undefined) {
+      setCupomAtivo(1);
+      console.log(cupomAtivo);
+      setDescontoCupom(descCupom);
+      let valorDeDesconto = precoOriginal - precoOriginal * (descCupom / 100);
+      let precoFinal = Math.floor(valorDeDesconto) + (descCupom === 100 ? 0 : 0.90)
+      setPrecoCupom(precoFinal.toFixed(2));
+    } else {
+      setCupomAtivo(2);
+      console.log(cupomAtivo);
+      setDescontoCupom(0);
+      setPrecoCupom(precoOriginal)
+    }
   };
 
   useEffect(() => {
@@ -298,11 +325,14 @@ const CreateEventPage = () => {
                   <Inputs
                     value={cupomUser}
                     onChange={(e) => setCupomUser(e.target.value)}
+                    onBlur={handleCupomBlur}
                     title={"Cupom"}
                     placeholder={"Possui cupom?"}
                     icon={<Ticket size={18} />}
                     type={"text"}
                     req={false}
+                    cupomAtivo={cupomAtivo}
+                    descontoCupom={descontoCupom}
                   />
                 </div>
                 <div className="card-register-plan">
@@ -311,10 +341,18 @@ const CreateEventPage = () => {
                       <h1 className="text-gradient">Plano Infinity</h1>
                     </div>
                     <div className="price-plan">
-                      <h1 className="text-gradient">R$ 99,90</h1>
+                      {cupomAtivo === 1 && (
+                        <h1 className="text-gradient cupom-ativo">R$99,90</h1>
+                      )}
+                      <h1 className="text-gradient">R$ {precoCupom}</h1>
                     </div>
                   </div>
                 </div>
+                {cupomAtivo === 1 && (
+                  <p className="subtitle-promo">
+                    Você recebeu um desconto de {descontoCupom}%
+                  </p>
+                )}
               </div>
             </div>
             <div className="area-button">
